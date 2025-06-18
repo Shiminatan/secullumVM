@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório de Cancelados</title>
+</head>
+<body>
+    <h1>Relatório de Cancelados por período</h1>
+    <form method="POST" action="">
+        <div class="select">
+            <label>Selecionar a tabela:</label>
+            <select name="tabela" required>
+                <option value="comunicador_servidor">COMUNICADOR SERVIDOR</option>
+                <option value="acesso_nuvem">ACESSO NA NUVEM</option>
+                <option value="idcloud">IDCLOUD</option>
+            </select>
+        </div>
+        <br><br>
+        <div class="inputdata">
+            <label>Data Início:</label>
+            <input type="date" name="data_inicio" value="<?php echo htmlspecialchars($data_inicio); ?>" required>
+            <label>Data Fim:</label>
+            <input type="date" name="data_fim" value="<?php echo htmlspecialchars($data_fim); ?>" required>
+            <input type="submit" name="gerar_relatorio" value="Gerar Relatório">
+        </div>
+    </form>
+    <style>
+           body {
+            font-family: Arial, sans-serif;
+            
+        }
+       
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .inputdata{
+            font-size: 20px;
+            left: 355px;
+            width: 550px;
+        }
+        .select{
+    
+        font-size: 16px; /* Ajuste o tamanho conforme necessário */
+        padding: 5px; /* Adiciona algum espaço interno */
+        margin: 5px 0; /* Adiciona margem para espaçamento */
+        }
+        p {
+           position:absolute;
+        font-weight: bold;
+        color: blue;
+       
+        left:1700px;
+        margin-right:5px;
+}
+
+    </style>
+    <?php
+    // Substitua as colunas abaixo pelos nomes das colunas que você deseja exibir
+    $colunas = "revenda, cliente, cnpj, banco, estado, data_canc";
+    
+    // Variáveis para persistir os campos após a consulta
+    $data_inicio = isset($_POST['data_inicio']) ? $_POST['data_inicio'] : '';
+    $data_fim = isset($_POST['data_fim']) ? $_POST['data_fim'] : '';
+
+    if (isset($_POST['gerar_relatorio'])) {
+        $tabela = $_POST['tabela'];
+        $data_inicio = $_POST['data_inicio'];
+        $data_fim = $_POST['data_fim'];
+
+        // Conexão com o banco de dados
+        $conn = new mysqli('localhost', 'root', '', 'formulariovms');
+
+        // Verificando conexão
+        if ($conn->connect_error) {
+            die("Conexão falhou: " . $conn->connect_error);
+        }
+
+        // Verifica a tabela e ajusta a consulta
+        $tabelas_permitidas = ['comunicador_servidor', 'acesso_nuvem', 'idcloud'];
+        if (!in_array($tabela, $tabelas_permitidas)) {
+            die("Tabela inválida.");
+        }
+
+        // Consulta SQL com prepared statement
+        $sql = "SELECT $colunas FROM $tabela WHERE data_canc BETWEEN ? AND ? ORDER BY revenda ASC";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ss", $data_inicio, $data_fim);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        // Exibindo o total de resultados
+        $totalResultados = $result->num_rows;
+        echo "<p>Total de resultados: $totalResultados</p>";
+
+        if ($totalResultados > 0) {
+            // Exibindo datas selecionadas após consulta
+            echo "<h2>Resultados da busca de " . date('d/m/Y', strtotime($data_inicio)) . " até " . date('d/m/Y', strtotime($data_fim)) . " na tabela " . strtoupper($tabela) . "</h2>";
+            echo "<table>
+                    <tr>";
+
+            // Exibe os cabeçalhos das colunas
+            foreach (explode(',', $colunas) as $coluna) {
+                echo "<th>" . trim($coluna) . "</th>";
+            }
+            echo "</tr>";
+
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                foreach (explode(',', $colunas) as $coluna) {
+                    echo "<td>{$row[trim($coluna)]}</td>";
+                }
+                echo "</tr>";
+            }
+            echo "</table>";
+
+            // Link para exportar para Excel
+            echo '<h1>Exportação para Excel</h1>';
+            echo '<a href="exportarCancelados.php?tabela=' . urlencode($tabela) . '&data_inicio=' . urlencode($data_inicio) . '&data_fim=' . urlencode($data_fim) . '">Exportar para Excel</a>';
+            echo '<br>';
+
+        } else {
+            echo "Nenhum registro encontrado.";
+        }
+
+        // Fechando conexão
+        $stmt->close();
+        $conn->close();
+    }
+    ?>
+</body>
+</html>

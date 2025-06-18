@@ -1,0 +1,10 @@
+Campos obrigatorios
+
+Acesso
+revenda, cliente, cnpj, modelo equipamento, codigo equipamento, nome equipamento, porta servidor, porta online, link acesso, case, validade, data inclusao
+
+Comunicador
+revenda, cnpj, cliente, banco, nome equipamento, porta servidor, porta agente, case, data inclusao
+
+IDcloud
+revenda, cliente, cnpj, banco, rep, login, ticket inclusao, case, data de inclusao
