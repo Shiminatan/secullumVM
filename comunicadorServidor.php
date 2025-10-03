@@ -27,7 +27,7 @@
         'funcao' => $userInfo['funcao']
       );
     } else {
-      // Se não encontrar informações do usuário, posso $currentUser como vazio ou null, dependendo da sua lógica de tratamento de erro
+      // Se não encontrar informações do usuário, posso $currentUser como vazio ou null, dependendo da sua lógica de tratamento de err
       $currentUser = null;
     }
 
