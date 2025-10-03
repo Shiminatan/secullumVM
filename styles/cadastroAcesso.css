@@ -1,0 +1,204 @@
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #75787B;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-y: auto; /* Adiciona barra de rolagem vertical */
+        }
+
+        .box {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 850px;
+            width: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        fieldset {
+            padding: 10px 32px;
+            box-sizing: border-box;
+            border: 3px solid #228658;
+            border-radius: 5px;
+        }
+
+        legend {
+            border: 2px solid #228658;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: #228658;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-bottom: 0;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex: 1 1 45%;
+        }
+
+        label {
+            font-size: 18px;
+        }
+        .inputBak,
+        .inputMob {
+            display: flex; /* Layout flexível para o contêiner de Backup e Mobuss */
+            flex-direction: column; /* Organiza os elementos principais (título e opções) verticalmente */
+            gap: 5px;
+            width: 100%; /* Garante que o contêiner ocupe todo o espaço disponível */
+        }
+
+        .inputBak-mob-container {
+            display: flex; /* Layout flexível para Backup e Mobuss */
+            gap: 20px; /* Espaçamento entre os dois blocos */
+            justify-content: space-between; /* Mantém os dois blocos separados */
+            align-items: flex-start; /* Alinha os itens ao topo */
+            width: 100%;
+        }
+
+        .radio-options {
+            display: flex; /* Organiza os botões de rádio e os rótulos lado a lado */
+            gap: 10px; /* Espaçamento entre os botões */
+            align-items: center; /* Centraliza verticalmente os botões e rótulos */
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .inputBak-mob-container {
+                flex-direction: column; /* Empilha os blocos Backup e Mobuss */
+                gap: 20px;
+            }
+
+            .radio-options {
+                flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+            }
+        }
+
+
+        .inputUser, select, textarea, input[type="date"] {
+            background: white;
+            color: black;
+            font-size: 16px;
+            padding: 10px;
+            border: 2px solid white;
+            border-radius: 5px;
+            outline: none;
+            width: 100%; /* Todos os campos ocupam a mesma largura */
+            box-sizing: border-box;
+            max-width: 100%; /* Para garantir que os campos não extrapolem */
+        }
+
+        textarea {
+            resize: none;
+            height: 100px; /* Ajuste para ficar proporcional */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0;
+            width: 100%;
+        }
+
+        .button-container button,
+        .button-container a {
+            width: 48%; /* Botões ocupam 48% do container */
+            text-align: center;
+            font-size: 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            background: #228658;
+            transition: background 0.3s ease;
+            padding: 15px 0;
+            border: none;
+        }
+
+        .button-container button:hover,
+        .button-container a:hover {
+            background-image: linear-gradient(to right, #28855b, #287c01);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                align-items: flex-start; /* Alinha o conteúdo ao topo */
+                padding: 20px; /* Adiciona espaçamento nas laterais */
+            }
+        
+            .box {
+                padding: 10px;
+                width: 100%;
+            }
+        
+            .form-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+        
+            .column {
+                flex: 1 1 100%; /* Faz as colunas ocuparem 100% da largura */
+            }
+        
+            fieldset {
+                padding: 10px;
+            }
+        
+            legend {
+                font-size: 18px;
+            }
+        
+            label {
+                font-size: 16px; /* Reduz o tamanho do texto */
+            }
+        
+            .inputUser, select, textarea, input[type="date"] {
+                font-size: 14px; /* Reduz tamanho do texto nos inputs */
+                padding: 8px;
+            }
+        
+            textarea {
+                height: 60px; /* Reduz a altura do textarea */
+            }
+        
+            .button-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+        
+            .button-container button,
+            .button-container a {
+                width: 100%; /* Botões ocupam toda a largura em telas pequenas */
+            }
+        }
+        #submit {
+				width: 48%; /* Botões ocupam 48% do container */
+				text-align: center;
+				font-size: 20px;
+				border-radius: 10px;
+				text-decoration: none;
+				color: white;
+				background: #228658;
+				transition: background 0.3s ease;
+				padding: 15px 0;
+				border: none;
+			}
+
+			/* Efeito ao passar o mouse */
+			#submit:hover {
+                background-image: linear-gradient(to right, #28855b, #287c01);
+			}

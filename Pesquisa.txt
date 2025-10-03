@@ -1,0 +1,29 @@
+PEsquisa programinha vm (funcionamento atual)
+
+IDCLOUD (5opcoes de busca)
+Revenda
+Cliente
+CNPJ
+banco
+case
+(ordenado por data inclusao)
+
+ACESSO (7opcoes de busca)
+revenda
+cliente
+cnpj
+link acesso
+case
+vm
+porta servidor
+(ordenado por data de inclusao)
+
+COMUNICADOR(7opcoes de busca)
+revenda
+cliente
+cnpj
+banco
+porta servidor
+VM
+case
+(ordenado decrescente porta servidor)

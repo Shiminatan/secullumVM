@@ -1,0 +1,156 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #75787b;
+  color: white;
+  margin: 0;
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+.box {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 950px;
+  width: 90%;
+}
+fieldset {
+  padding: 15px 25px;
+  border: 3px solid dodgerblue;
+  border-radius: 15px;
+}
+legend {
+  border: 2px solid dodgerblue;
+  padding: 10px 20px;
+  text-align: center;
+  background-color: dodgerblue;
+  border-radius: 8px;
+  color: white;
+}
+h3 {
+  text-align: left;
+  color: white;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.column {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.inputBox {
+  width: 100%;
+}
+.inputBox label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: white;
+}
+.inputUser,
+select,
+textarea,
+input[type='date'] {
+  background: white;
+  color: black;
+  font-size: 16px;
+  padding: 10px;
+  border: 2px solid white;
+  border-radius: 5px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+.radio-options-group {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Garante espaçamento entre os botões */
+  gap: 15px;
+  margin-top: 25px;
+}
+#submit,
+.button-container a {
+  width: 48%; /* Define a largura para perto de 50% */
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  padding: 15px 0;
+  font-size: 15px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+#submit {
+  background-image: linear-gradient(to right, rgb(0, 92, 197), rgb(90, 20, 220));
+}
+#submit:hover {
+  background-image: linear-gradient(to right, rgb(0, 80, 170), rgb(80, 10, 210));
+}
+.button-container a {
+  background-color: dodgerblue;
+  border: 1px solid #666;
+}
+.button-container a:hover {
+  background: #666;
+}
+.equipamento-bloco {
+  border-top: 2px solid dodgerblue;
+  padding-top: 20px;
+  margin-top: 25px;
+}
+.equipamento-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.equipamento-header h4 {
+  color: white;
+  margin: 0;
+  font-size: 1.2em;
+}
+.adicionar-btn {
+  background-color: dodgerblue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  width: 100%;
+  text-transform: uppercase;
+}
+.adicionar-btn:hover {
+  background-color: #007bff;
+}
+.remover-equipamento-btn {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 0.2rem;
+  border: 1px solid transparent;
+}
+.remover-equipamento-btn:hover {
+  background-color: #bb2d3b;
+  border-color: #b02a37;
+}

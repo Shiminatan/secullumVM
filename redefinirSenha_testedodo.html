@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redefinição de Senha</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-top: 10px;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-secondary {
+      background-color: #007bff;
+    }
+
+    .btn-secondary:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  <script>
+    async function resetPassword() {
+      const usuario = document.getElementById("usuario").value;
+      const novaSenha = document.getElementById("novaSenha").value;
+      const confirmarSenha = document.getElementById("confirmarSenha").value;
+
+      if (novaSenha !== confirmarSenha) {
+        alert("As senhas não coincidem!");
+        return;
+      }
+
+      const response = await fetch("http://localhost:3000/reset-password", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ usuario, novaSenha }),
+      });
+
+      const result = await response.json();
+
+      if (response.status === 404) {
+        alert("Usuário não encontrado!");
+      } else {
+        alert(result.message);
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Redefinição de Senha</h2>
+    <form onsubmit="event.preventDefault(); resetPassword();">
+      <label for="usuario">Usuário:</label>
+      <input type="text" id="usuario" required />
+
+      <label for="novaSenha">Nova Senha:</label>
+      <input type="password" id="novaSenha" required />
+
+      <label for="confirmarSenha">Confirmar Nova Senha:</label>
+      <input type="password" id="confirmarSenha" required />
+
+      <button type="submit">Redefinir Senha</button>
+      <button type="button" class="btn-secondary" onclick="window.location.href='telaLogin.php'">
+        Voltar
+      </button>
+    </form>
+  </div>
+</body>
+
+</html>
