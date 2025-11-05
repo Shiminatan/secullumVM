@@ -69,7 +69,7 @@
                         <div class="inputOption" style="margin-top: 15px;"><p>Status</p><div class="radio-options"><input type="radio" id="ativo" name="estado" value="Ativo" checked><label for="ativo">Ativo</label><input type="radio" id="cancelado" name="estado" value="Cancelado"><label for="cancelado">Cancelado</label></div></div>
                         <div class="d-flex" style="gap: 40px; margin-top: 15px;">
                             <div class="inputBak" style="width: auto;"><p>Backup</p><div class="radio-options"><input type="radio" id="backup-sim" name="backup_" value="sim" checked><label for="backup-sim">Sim</label><input type="radio" id="backup-nao" name="backup_" value="nao"><label for="backup-nao">Não</label></div></div>
-                            <div class="inputMob" style="width: auto;"><p>Mobuss</p><div class="radio-options"><input type="radio" id="mobuss-sim" name="mobuss" value="sim" checked><label for="mobuss-sim">Sim</label><input type="radio" id="mobuss-nao" name="mobuss" value="nao"><label for="mobuss-nao">Não</label></div></div>
+                            <div class="inputMob" style="width: auto;"><p>Mobuss</p><div class="radio-options"><input type="radio" id="mobuss-sim" name="mobuss" value="sim"><label for="mobuss-sim">Sim</label><input type="radio" id="mobuss-nao" name="mobuss" value="nao" checked><label for="mobuss-nao">Não</label></div></div>
                         </div>
                     </div>
                 </div>
