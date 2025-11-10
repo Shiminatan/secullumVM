@@ -1,3 +1,8 @@
+ // Variáveis para persistir os campos após a consulta
+ <?php
+    $data_inicio = isset($_POST['data_inicio']) ? $_POST['data_inicio'] : '';
+    $data_fim = isset($_POST['data_fim']) ? $_POST['data_fim'] : '';
+	?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -62,9 +67,7 @@
         'data_incl' => 'Data Inclusão'
     ];
     
-    // Variáveis para persistir os campos após a consulta
-    $data_inicio = isset($_POST['data_inicio']) ? $_POST['data_inicio'] : '';
-    $data_fim = isset($_POST['data_fim']) ? $_POST['data_fim'] : '';
+   
 
     if (isset($_POST['gerar_relatorio'])) {
         $tabela = $_POST['tabela'];
