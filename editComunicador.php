@@ -135,7 +135,7 @@
             <option value="Inner Rep"         <?php if($equip_modelo == "Inner Rep") echo "selected"; ?>>Inner Rep </option>
             <option value="Inner Rep Plus"    <?php if($equip_modelo == "Inner Rep Plus") echo "selected"; ?>>Inner Rep Plus</option>
             <option value="Inner Rep Plus V5" <?php if($equip_modelo == "Inner Rep Plus V5") echo "selected"; ?>>Inner Rep Plus V5</option>
-			<option value="Inner Ponto4" <?php if($equip_modelo == "Inner Rep Plus V5") echo "selected"; ?>>Inner Ponto4</option>
+			<option value="Inner Ponto4"      <?php if($equip_modelo == "Inner Ponto4") echo "selected"; ?>>Inner Ponto4</option>
             <option value="Prisma SF"         <?php if($equip_modelo == "Prisma SF") echo "selected"; ?>>Prisma SF</option>
             <option value="Prisma SF ADV"     <?php if($equip_modelo == "Prisma SF ADV") echo "selected"; ?>>Prisma SF ADV</option>
             <option value="Prisma SF ADV 671"<?php if($equip_modelo == "Prisma SF ADV 671") echo "selected"; ?>>Prisma SF ADV 671</option>

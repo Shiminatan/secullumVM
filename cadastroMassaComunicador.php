@@ -121,7 +121,7 @@
                                 <option value="" disabled selected>Selecione o modelo</option>
                                 <option value="Inner Rep">Inner Rep</option>
                                 <option value="Inner Rep Plus">Inner Rep Plus</option>
-                                <option value="Inner Rep Plus V5">Inner Rep PLus V5</option>
+                                <option value="Inner Rep Plus V5">Inner Rep Plus V5</option>
                                 <option value="Inner Ponto4">Inner Ponto4</option>
                                 <option value="Prisma SF">Prisma SF</option>
                                 <option value="Prisma SF ADV">Prisma SF ADV</option>
